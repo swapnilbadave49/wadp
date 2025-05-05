@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Database</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      h1, h2 {
+        text-align: center;
+        color: #333;
+      }
+      table {
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .controls {
+        max-width: 1200px;
+        margin: 20px auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .controls input,
+      .controls button {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .controls button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .controls button:hover {
+        background-color: #45a049;
+      }
+      .error, .success {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .error { color: red; }
+      .success { color: green; }
+      @media (max-width: 768px) {
+        table { font-size: 14px; }
+        .controls { flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Music Database</h1>
+    <div class="controls">
+      <button onclick="insertSongs()">Insert Sample Songs</button>
+      <input type="text" id="musicDirector" placeholder="Music Director" />
+      <button onclick="filterByMusicDirector()">Filter by Music Director</button>
+      <input type="text" id="directorSinger" placeholder="Singer for Director" />
+      <button onclick="filterByDirectorAndSinger()">Filter by Director & Singer</button>
+      <input type="text" id="deleteSong" placeholder="Song to Delete" />
+      <button onclick="deleteSong()">Delete Song</button>
+      <input type="text" id="singerFilmSinger" placeholder="Singer" />
+      <input type="text" id="singerFilm" placeholder="Film" />
+      <button onclick="filterBySingerAndFilm()">Filter by Singer & Film</button>
+      <input type="text" id="updateSong" placeholder="Song to Update" />
+      <input type="text" id="actor" placeholder="Actor" />
+      <input type="text" id="actress" placeholder="Actress" />
+      <button onclick="updateSong()">Update Song</button>
+    </div>
+    <h2>Total Songs: <span id="songCount">0</span></h2>
+    <table id="songTable">
+      <thead>
+        <tr>
+          <th>Song Name</th>
+          <th>Film Name</th>
+          <th>Music Director</th>
+          <th>Singer</th>
+          <th>Actor</th>
+          <th>Actress</th>
+        </tr>
+      </thead>
+      <tbody id="songTableBody"></tbody>
+    </table>
+    <p id="message" class="error"></p>
+    <script>
+      const messageEl = document.getElementById("message");
+
+      function showMessage(message, type) {
+        messageEl.textContent = message;
+        messageEl.className = type;
+      }
+
+      function displaySongs(songs, count) {
+        const tableBody = document.getElementById("songTableBody");
+        tableBody.innerHTML = songs.map(song => `
+          <tr>
+            <td>${song.Songname}</td>
+            <td>${song.Film}</td>
+            <td>${song.Music_director}</td>
+            <td>${song.Singer}</td>
+            <td>${song.Actor || ""}</td>
+            <td>${song.Actress || ""}</td>
+          </tr>
+        `).join("");
+        document.getElementById("songCount").textContent = count;
+      }
+
+      async function fetchSongs() {
+        try {
+          const res = await fetch("/api/songs");
+          const data = await res.json();
+          displaySongs(data.songs, data.count);
+        } catch (e) {
+          showMessage("Error fetching songs: " + e.message, "error");
+        }
+      }
+
+      async function insertSongs() {
+        try {
+          const res = await fetch("/api/songs/insert", { method: "POST" });
+          const data = await res.json();
+          showMessage(`Inserted ${data.insertedCount} songs`, "success");
+          fetchSongs();
+        } catch (e) {
+          showMessage("Error inserting songs: " + e.message, "error");
+        }
+      }
+
+      async function deleteSong() {
+        const name = document.getElementById("deleteSong").value;
+        if (!name) return showMessage("Please enter a song name to delete", "error");
+
+        try {
+          const res = await fetch(`/api/songs/delete/${encodeURIComponent(name)}`, { method: "DELETE" });
+          const data = await res.json();
+          showMessage(`Deleted ${data.deletedCount} song(s)`, "success");
+          fetchSongs();
+        } catch (e) {
+          showMessage("Error deleting song: " + e.message, "error");
+        }
+      }
+
+      async function filterByMusicDirector() {
+        const director = document.getElementById("musicDirector").value;
+        if (!director) return showMessage("Please enter a Music Director", "error");
+
+        try {
+          const res = await fetch(`/api/songs/music-director/${encodeURIComponent(director)}`);
+          const data = await res.json();
+          displaySongs(data, data.length);
+        } catch (e) {
+          showMessage("Error filtering songs: " + e.message, "error");
+        }
+      }
+
+      async function filterByDirectorAndSinger() {
+        const director = document.getElementById("musicDirector").value;
+        const singer = document.getElementById("directorSinger").value;
+        if (!director || !singer) return showMessage("Enter both Music Director and Singer", "error");
+
+        try {
+          const res = await fetch(`/api/songs/music-director/${encodeURIComponent(director)}/singer/${encodeURIComponent(singer)}`);
+          const data = await res.json();
+          displaySongs(data, data.length);
+        } catch (e) {
+          showMessage("Error filtering songs: " + e.message, "error");
+        }
+      }
+
+      async function filterBySingerAndFilm() {
+        const singer = document.getElementById("singerFilmSinger").value;
+        const film = document.getElementById("singerFilm").value;
+        if (!singer || !film) return showMessage("Enter both Singer and Film", "error");
+
+        try {
+          const res = await fetch(`/api/songs/singer/${encodeURIComponent(singer)}/film/${encodeURIComponent(film)}`);
+          const data = await res.json();
+          displaySongs(data, data.length);
+        } catch (e) {
+          showMessage("Error filtering songs: " + e.message, "error");
+        }
+      }
+
+      async function updateSong() {
+        const name = document.getElementById("updateSong").value;
+        const actor = document.getElementById("actor").value;
+        const actress = document.getElementById("actress").value;
+        if (!name || !actor || !actress) return showMessage("Enter Song Name, Actor & Actress", "error");
+
+        try {
+          const res = await fetch(`/api/songs/update/${encodeURIComponent(name)}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ Actor: actor, Actress: actress })
+          });
+          const data = await res.json();
+          showMessage(`Updated ${data.modifiedCount} song(s)`, "success");
+          fetchSongs();
+        } catch (e) {
+          showMessage("Error updating song: " + e.message, "error");
+        }
+      }
+      
+      window.onload = fetchSongs;
+    </script>
+  </body>
+</html>

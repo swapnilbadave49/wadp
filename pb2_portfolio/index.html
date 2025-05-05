@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Patil - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #1f2937;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #60a5fa;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+        }
+
+        #home {
+            background: linear-gradient(to right, #60a5fa, #34d399);
+            color: white;
+            padding: 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #home img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item, .project-card, .education-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover, .project-card:hover, .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-card h3 {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #1f2937;
+        }
+
+        .contact-item a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .contact-item i {
+            color: #3b82f6;
+        }
+
+        footer {
+            background: #1f2937;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <img src="https://via.placeholder.com/150?text=Profile" alt="Profile Picture">
+        <h1>Swapnil Badave</h1>
+        <p>Computer Engineering Student | Web Developer | Tech Enthusiast</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Proficient in various programming languages and tools.</p>
+        <div class="skills-grid">
+            <div class="skill-item">HTML5</div>
+            <div class="skill-item">CSS3</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">React</div>
+            <div class="skill-item">Git</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Some of my recent work in development and problem-solving.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x150?text=Weather+App" alt="Weather App">
+                <h3>Weather App</h3>
+                <p>A web app displaying real-time weather data using a public API and JS.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x150?text=Portfolio+Site" alt="Portfolio Site">
+                <h3>Portfolio Website</h3>
+                <p>A responsive personal portfolio made with HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x150?text=To-Do+App" alt="To-Do App">
+                <h3>To-Do List App</h3>
+                <p>A React-based task manager with persistent local storage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p>My academic journey so far.</p>
+        <div class="education-list">
+            <div class="education-item">
+                <h3>B.E. in Computer Engineering</h3>
+                <p>Pune Institute of Computer Technology</p>
+                <p>2022 - Present | CGPA: 8.5</p>
+            </div>
+            <div class="education-item">
+                <h3>HSC (12th Grade)</h3>
+                <p>XYZ Junior College</p>
+                <p>2020 - 2022 | 92%</p>
+            </div>
+            <div class="education-item">
+                <h3>SSC (10th Grade)</h3>
+                <p>ABC High School</p>
+                <p>2018 - 2020 | 95%</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Let's connect for opportunities or collaboration!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>swapnil.badave@email.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <p>+91 98765 43210</p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <p><a href="https://linkedin.com/in/swapnilbadave" target="_blank">LinkedIn</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <p><a href="https://github.com/swapnilbadave" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Swapnil Badave. All rights reserved.</p>
+    </footer>
+</body>
+</html>

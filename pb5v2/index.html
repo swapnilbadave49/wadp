@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mugs E-commerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex align-items-center mb-4">
+      <h2 class="mb-0 me-auto">Mugs</h2>
+      <div class="sort-by-wrapper mx-auto">
+        <label for="sortBy" class="form-label mb-0 me-2">Sort by</label>
+        <select class="form-select d-inline-block w-auto" id="sortBy">
+          <option value="default">Default</option>
+          <option value="priceLowToHigh">Price: Low to High</option>
+          <option value="priceHighToLow">Price: High to Low</option>
+          <option value="popularity">Popularity</option>
+        </select>
+      </div>
+    </div>
+    <p class="mb-4">Mugs and glasses sell great as gifts for friends and loved ones on special occasions. Choose from many different sizes and styles.</p>
+
+    <div class="row">
+      <div class="col-md-3 filter-section">
+        <div class="mb-3">
+          <label class="form-label">Target Market</label>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="usa" id="targetMarketUsa">
+            <label class="form-check-label" for="targetMarketUsa">USA</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="canada" id="targetMarketCanada">
+            <label class="form-check-label" for="targetMarketCanada">Canada</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="uk" id="targetMarketUk">
+            <label class="form-check-label" for="targetMarketUk">United Kingdom</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="europe" id="targetMarketEurope">
+            <label class="form-check-label" for="targetMarketEurope">Europe</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="australiaNZ" id="targetMarketAustraliaNZ">
+            <label class="form-check-label" for="targetMarketAustraliaNZ">Australia/NZ</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="china" id="targetMarketChina">
+            <label class="form-check-label" for="targetMarketChina">China</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input target-market" type="checkbox" value="other" id="targetMarketOther">
+            <label class="form-check-label" for="targetMarketOther">Other</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Print Area</label>
+          <div class="form-check">
+            <input class="form-check-input print-area" type="checkbox" value="front" id="printAreaFront">
+            <label class="form-check-label" for="printAreaFront">Front side</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input print-area" type="checkbox" value="wraparound" id="printAreaWraparound">
+            <label class="form-check-label" for="printAreaWraparound">Wraparound</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input print-area" type="checkbox" value="printAdd" id="printAreaPrintAdd">
+            <label class="form-check-label" for="printAreaPrintAdd">Prints Add</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="productContainer">
+          <div class="col" data-price="4.40" data-target-market="usa" data-print-area="front">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Ceramic Mug 11oz">
+              <div class="card-body">
+                <h5 class="card-title">Ceramic Mug 11oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 4.40</p>
+                <p class="text-muted">1 size - District Photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="5.52" data-target-market="canada" data-print-area="wraparound">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Accent Coffee Mug 11oz">
+              <div class="card-body">
+                <h5 class="card-title">Accent Coffee Mug 11oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 5.52</p>
+                <p class="text-muted">1 size - District Photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="5.64" data-target-market="uk" data-print-area="printAdd">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Ceramic Mug 15oz">
+              <div class="card-body">
+                <h5 class="card-title">Ceramic Mug 15oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 5.64</p>
+                <p class="text-muted">1 size - MyLocker</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="5.88" data-target-market="europe" data-print-area="front">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="White Ceramic Mug">
+              <div class="card-body">
+                <h5 class="card-title">White Ceramic Mug</h5>
+                <p class="card-text">By Generic Brand<br>From USD 5.88</p>
+                <p class="text-muted">2 sizes - MyLocker</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="4.40" data-target-market="australiaNZ" data-print-area="wraparound">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Mug 11oz">
+              <div class="card-body">
+                <h5 class="card-title">Mug 11oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 4.40</p>
+                <p class="text-muted">1 size - District Photo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register/Login</title>
+</head>
+<body>
+  <h2>Registration</h2>
+  <form id="registerForm">
+    <input type="text" id="name" placeholder="Name" required><br>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="tel" id="mobile" placeholder="Mobile (10 digits)" pattern="\d{10}" required><br>
+    <input type="date" id="dob" required><br>
+    <input type="text" id="city" placeholder="City" required><br>
+    <textarea id="address" placeholder="Address" required></textarea><br>
+    <input type="text" id="regUsername" placeholder="Username" required><br>
+    <input type="password" id="regPassword" placeholder="Password" required><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" id="loginUsername" placeholder="Username" required><br>
+    <input type="password" id="loginPassword" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

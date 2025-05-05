@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Marks</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    th { background-color: #4caf50; color: white; }
+    button { margin: 5px; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Student Marks Database</h1>
+  <button onclick="insertStudents()">Insert Sample Students</button>
+  <button onclick="fetchAll()">Show All Students</button>
+  <button onclick="filterDSBDA()">DSBDA > 20</button>
+  <button onclick="filterTopper()">All Subjects > 25</button>
+  <button onclick="filterWeak()">WAD & CC < 40</button>
+  <input type="text" id="updateName" placeholder="Name to Update Marks" />
+  <button onclick="updateMarks()">Update +10</button>
+  <input type="text" id="deleteName" placeholder="Name to Delete" />
+  <button onclick="deleteStudent()">Delete</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th><th>Roll No</th><th>WAD</th><th>CC</th><th>DSBDA</th><th>CNS</th><th>AI</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    async function insertStudents() {
+      const res = await fetch('/api/students/insert', { method: 'POST' });
+      alert(await res.text());
+    }
+
+    async function fetchAll() {
+      const res = await fetch('/api/students');
+      const data = await res.json();
+      renderTable(data.students);
+    }
+
+    async function filterDSBDA() {
+      const res = await fetch('/api/students/dsbda/20');
+      alert("DSBDA > 20:\n" + (await res.json()).map(s => s.Name).join(", "));
+    }
+
+    async function filterTopper() {
+      const res = await fetch('/api/students/topper');
+      alert("All Subjects > 25:\n" + (await res.json()).map(s => s.Name).join(", "));
+    }
+
+    async function filterWeak() {
+      const res = await fetch('/api/students/weak');
+      alert("WAD & CC < 40:\n" + (await res.json()).map(s => s.Name).join(", "));
+    }
+
+    async function updateMarks() {
+      const name = document.getElementById('updateName').value;
+      const res = await fetch(`/api/students/update/${name}`, { method: 'PUT' });
+      const result = await res.json();
+      alert(`Updated: ${result.modifiedCount}`);
+    }
+
+    async function deleteStudent() {
+      const name = document.getElementById('deleteName').value;
+      const res = await fetch(`/api/students/delete/${name}`, { method: 'DELETE' });
+      const result = await res.json();
+      alert(`Deleted: ${result.deletedCount}`);
+    }
+
+    function renderTable(students) {
+      document.getElementById('tableBody').innerHTML = students.map(s => `
+        <tr>
+          <td>${s.Name}</td>
+          <td>${s.Roll_No}</td>
+          <td>${s.WAD_Marks}</td>
+          <td>${s.CC_Marks}</td>
+          <td>${s.DSBDA_Marks}</td>
+          <td>${s.CNS_Marks}</td>
+          <td>${s.AI_marks}</td>
+        </tr>
+      `).join('');
+    }
+
+    fetchAll();
+  </script>
+</body>
+</html>

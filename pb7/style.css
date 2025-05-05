@@ -1,0 +1,45 @@
+body {
+    background-color: #e9ebee;
+  }
+  
+  .navbar {
+    background-color: #3b5998;
+  }
+  
+  .navbar-brand {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .form-label,
+  .form-check-label {
+    font-weight: 500;
+  }
+  
+  .header-login input {
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  
+  .header-login .form-check {
+    color: white;
+    font-size: 0.8rem;
+  }
+  
+  .form-section {
+    margin-top: 3rem;
+  }
+  
+  .form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .signup-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+  }
+  

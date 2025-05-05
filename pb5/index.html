@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mugs E-commerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h2 class="mb-4">Mugs</h2>
+    <p class="mb-4">Mugs and glasses sell great as gifts for friends and loved ones on special occasions. Choose from many different sizes and styles.</p>
+
+    <div class="row">
+      <div class="col-md-3 filter-section">
+        <div class="mb-3">
+          <label for="targetMarket" class="form-label">Target Market</label>
+          <select class="form-select" id="targetMarket">
+            <option value="all">All</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="europe">Europe</option>
+            <option value="australiaNZ">Australia/NZ</option>
+            <option value="china">China</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="printArea" class="form-label">Print Area</label>
+          <select class="form-select" id="printArea">
+            <option value="all">All areas</option>
+            <option value="front">Front side</option>
+            <option value="wraparound">Wraparound</option>
+            <option value="printAdd">Prints Add</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="sortBy" class="form-label">Sort by</label>
+          <select class="form-select" id="sortBy">
+            <option value="default">Default</option>
+            <option value="priceLowToHigh">Price: Low to High</option>
+            <option value="priceHighToLow">Price: High to Low</option>
+            <option value="popularity">Popularity</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="productContainer">
+          <div class="col" data-price="4.40" data-target-market="usa" data-print-area="front">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Ceramic Mug 11oz">
+              <div class="card-body">
+                <h5 class="card-title">Ceramic Mug 11oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 4.40</p>
+                <p class="text-muted">1 size - District Photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="5.52" data-target-market="canada" data-print-area="wraparound">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Accent Coffee Mug 11oz">
+              <div class="card-body">
+                <h5 class="card-title">Accent Coffee Mug 11oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 5.52</p>
+                <p class="text-muted">1 size - District Photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="5.64" data-target-market="uk" data-print-area="printAdd">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Ceramic Mug 15oz">
+              <div class="card-body">
+                <h5 class="card-title">Ceramic Mug 15oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 5.64</p>
+                <p class="text-muted">1 size - MyLocker</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="5.88" data-target-market="europe" data-print-area="front">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="White Ceramic Mug">
+              <div class="card-body">
+                <h5 class="card-title">White Ceramic Mug</h5>
+                <p class="card-text">By Generic Brand<br>From USD 5.88</p>
+                <p class="text-muted">2 sizes - MyLocker</p>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-price="4.40" data-target-market="australiaNZ" data-print-area="wraparound">
+            <div class="card h-100">
+              <img src="https://via.placeholder.com/200" class="card-img-top" alt="Mug 11oz">
+              <div class="card-body">
+                <h5 class="card-title">Mug 11oz</h5>
+                <p class="card-text">By Generic Brand<br>From USD 4.40</p>
+                <p class="text-muted">1 size - District Photo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

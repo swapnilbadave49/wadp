@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+</head>
+<body>
+   
+    <h2>Registered users</h2>
+    <table border="1">
+        <thead>
+            <tr><th>Name</th>
+            <th>Email</th>
+            <th>Dob</th>
+            <th>City</th>
+            </tr>
+        </thead>
+        <tbody id="ud"></tbody>
+    </table>
+</body>
+<script>
+    fetch('/api/users').then(response=>response.json()
+    ).then(users=>{
+        const add=document.getElementById("ud")
+        users.forEach(user=>
+        {
+            const row=document.createElement("tr");
+            row.innerHTML= `<td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.dob}</td>
+            <td>${user.city}</td>
+            `;
+           
+            add.appendChild(row);
+        });
+    });
+</script>
+</html>
+

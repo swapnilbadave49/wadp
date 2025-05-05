@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          padding: 20px;
+        }
+       table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+       }
+       th,td
+       {
+        border-collapse: collapse;
+        border: 1px solid black;
+        padding: 10px;
+       }
+       .pagination
+       {
+         padding: 10px;
+         text-align: center;
+         
+       }
+       .pagination button{
+        cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+    <h2>Product catalog</h2>
+    <table id="t1">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div class="pagination">
+        <button onclick="ppage()">Previous</button>
+        <span id="pinfo">Page 1</span>
+        <button onclick="npage()">Next</button>
+    </div>
+</body>
+<script>
+const items=[
+{name:"item1",price:30,image:"lp.jpg"},
+{name:"item2",price:10,image:"lp2.jpg"},
+{name:"item3",price:30,image:"lp3.jpg"},
+{name:"item4",price:40,image:"lp4.jpg"},
+{name:"item5",price:30,image:"lp5.jpg"},
+{name:"item6",price:30,image:"lp6.jpg"}
+]
+let currentPage=1;
+let rowsPerPage=5;
+function renderTable()
+{  let start=(currentPage-1)*rowsPerPage;
+    let end=start+rowsPerPage;
+    const pageitems=items.slice(start,end);
+    const tbody=document.querySelector("#t1 tbody");
+    tbody.innerHTML="";
+    pageitems.forEach(product=>
+    {
+           const row=`<tr>
+              <td><img src="${product.image}"  alt="${product.name}"/></td>
+              <td>${product.name}</td>
+              <td>${product.price}</td>
+           </tr>`
+
+           tbody.innerHTML+=row;
+           
+    });
+    document.querySelector("#pinfo").innerHTML=`Page ${currentPage} of ${Math.ceil(items.length/rowsPerPage)}`
+}
+function npage()
+{
+    if(currentPage*rowsPerPage<items.length)
+    {
+        currentPage++;
+        renderTable();
+    }
+}
+function ppage()
+{
+    if(currentPage>1)
+    {
+        currentPage--;
+        renderTable();
+    }
+}
+renderTable();
+
+const tbody=document.querySelector()
+</script>
+</html>

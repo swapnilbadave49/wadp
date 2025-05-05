@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+  <!-- Home / About Me Page -->
+  <div data-role="page" id="about">
+    <div data-role="header">
+      <h1>My Portfolio</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#about" class="ui-btn-active">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <h2>About Me</h2>
+      <p>Hello! I'm a passionate developer interested in web development, mobile apps, and modern tech. I enjoy building creative and efficient solutions.</p>
+      <img src="https://via.placeholder.com/200x200?text=Profile+Pic" alt="Profile" style="width:100%; max-width:200px; border-radius: 50%;">
+    </div>
+  </div>
+
+  <!-- Projects Page -->
+  <div data-role="page" id="projects">
+    <div data-role="header">
+      <h1>Projects</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects" class="ui-btn-active">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview">
+        <li><h2>Portfolio Website</h2><p>Mobile-first personal website using jQuery Mobile.</p></li>
+        <li><h2>Todo App</h2><p>A simple task manager with AJAX backend integration.</p></li>
+        <li><h2>Voting System</h2><p>Blockchain-based decentralized voting platform.</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Skills Page -->
+  <div data-role="page" id="skills">
+    <div data-role="header">
+      <h1>Skills</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills" class="ui-btn-active">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" data-inset="true">
+        <li>HTML, CSS, JavaScript</li>
+        <li>jQuery / jQuery Mobile</li>
+        <li>React / MERN Stack</li>
+        <li>Node.js, Express.js</li>
+        <li>MongoDB, SQL</li>
+        <li>Git & GitHub</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div data-role="page" id="contact">
+    <div data-role="header">
+      <h1>Contact</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact" class="ui-btn-active">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <p><strong>Email:</strong> me@example.com</p>
+      <p><strong>Phone:</strong> +91 12345 67890</p>
+      <p><strong>LinkedIn:</strong> linkedin.com/in/yourname</p>
+      <p><strong>GitHub:</strong> github.com/yourusername</p>
+    </div>
+  </div>
+
+</body>
+</html>

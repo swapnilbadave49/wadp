@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PICT B.E. Course Structure</title>
+  <!-- Load jQuery Mobile CSS from CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Fallback CSS if CDN fails -->
+  <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" media="none" onload="if(media!='all')media='all'">
+  <style>
+    .ui-collapsible-content {
+      padding: 10px;
+    }
+    .subject-item {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div data-role="page" id="course-page">
+    <div data-role="header">
+      <h1>PICT B.E. Course Structure</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>First Year (FE)</h3>
+        <div data-role="collapsible-set">
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Linear Algebra and Calculus</h4>
+            <p>Introduces fundamental concepts of linear algebra and calculus, essential for engineering problem-solving.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>C Programming for Problem Solving</h4>
+            <p>Teaches the basics of C programming, focusing on problem-solving techniques and algorithm development.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Mechanics for Robotics</h4>
+            <p>Explores mechanical principles applied to robotics, including motion and force analysis.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>Second Year (SE)</h3>
+        <div data-role="collapsible-set">
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Data Structures</h4>
+            <p>Covers the design and implementation of data structures like arrays, linked lists, and trees.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Object-Oriented Programming</h4>
+            <p>Focuses on OOP principles using languages like Java or C++, emphasizing encapsulation and inheritance.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Digital Electronics</h4>
+            <p>Introduces the basics of digital circuits and their applications in computing systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>Third Year (TE)</h3>
+        <div data-role="collapsible-set">
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Operating Systems</h4>
+            <p>Explores OS concepts including process management, memory management, and file systems.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Database Management Systems</h4>
+            <p>Teaches database design, SQL queries, and transaction management.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Computer Networks</h4>
+            <p>Covers networking fundamentals, protocols, and network security.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>Final Year (BE)</h3>
+        <div data-role="collapsible-set">
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Software Engineering</h4>
+            <p>Focuses on software development lifecycle, design patterns, and project management.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Artificial Intelligence</h4>
+            <p>Introduces AI concepts including machine learning, neural networks, and natural language processing.</p>
+          </div>
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>Project Work</h4>
+            <p>Involves a capstone project applying skills from previous years under faculty guidance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-role="footer">
+      <p>© 2025 PICT</p>
+    </div>
+  </div>
+
+  <!-- Load jQuery first -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!-- Fallback jQuery if CDN fails -->
+  <script>
+    window.jQuery || document.write('<script src="jquery-1.11.1.min.js"><\/script>')
+  </script>
+  <!-- Load jQuery Mobile after jQuery -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Fallback jQuery Mobile if CDN fails -->
+  <script>
+    if (typeof $.mobile === 'undefined') {
+      document.write('<script src="jquery.mobile-1.4.5.min.js"><\/script>')
+    }
+  </script>
+  <!-- Initialize jQuery Mobile -->
+  <script>
+    $(document).on("mobileinit", function() {
+      // Ensure jQuery Mobile initializes
+      $.mobile.ajaxEnabled = false; // Disable AJAX navigation for static site
+    });
+  </script>
+</body>
+</html>

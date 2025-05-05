@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        margin-top: 10px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+       }
+       th,td
+       {
+        border: 1px solid black;
+        padding: 10px;
+       }
+</style>
+<body>
+    <h2>Music Database</h2>
+    <div class="controls">
+        <button onclick="insertSongs()">Insert Sample Songs</button>
+        <input type="text" id="musicDirector" placeholder="Music Director" />
+        <button onclick="filterByMusicDirector()">Filter by Music Director</button>
+        <input type="text" id="directorSinger" placeholder="Singer for Director" />
+        <button onclick="filterByDirectorAndSinger()">Filter by Director & Singer</button>
+        <input type="text" id="deleteSong" placeholder="Song to Delete" />
+        <button onclick="deleteSong()">Delete Song</button>
+        <input type="text" id="singerFilmSinger" placeholder="Singer" />
+        <input type="text" id="singerFilm" placeholder="Film" />
+        <button onclick="filterBySingerAndFilm()">Filter by Singer & Film</button>
+        <input type="text" id="updateSong" placeholder="Song to Update" />
+        <input type="text" id="actor" placeholder="Actor" />
+        <input type="text" id="actress" placeholder="Actress" />
+        <button onclick="updateSong()">Update Song</button>
+      </div>
+      <h2>Total Songs: <span id="songCount">0</span></h2>
+      <table id="songTable">
+        <thead>
+          <tr>
+            <th>Song Name</th>
+            <th>Film Name</th>
+            <th>Music Director</th>
+            <th>Singer</th>
+            <th>Actor</th>
+            <th>Actress</th>
+          </tr>
+        </thead>
+        <tbody id="songTableBody"></tbody>
+      </table>
+      <p id="message" class="error"></p>
+      <script>
+
+        const me1=document.getElementById("message");
+        function showmessage(message,type)
+        {
+            me1.textContent=message;
+            me1.className=type;
+        };
+        function displaySongs(songs, count) {
+            const tableBody = document.getElementById("songTableBody");
+            tableBody.innerHTML = songs.map(song => `
+              <tr>
+                <td>${song.Songname}</td>
+                <td>${song.Film}</td>
+                <td>${song.Music_director}</td>
+                <td>${song.Singer}</td>
+                <td>${song.Actor || ""}</td>
+                <td>${song.Actress || ""}</td>
+              </tr>
+            `).join("");
+            document.getElementById("songCount").textContent = count;
+          }
+          async function fetchSongs() {
+            try {
+              const res = await fetch("/api/songs");
+              const data = await res.json();
+              displaySongs(data.songs, data.count);
+            } catch (e) {
+              showMessage("Error fetching songs: " + e.message, "error");
+            }
+          }
+       
+          async function insertSongs() {
+            try {
+              const res = await fetch("/api/songs/insert");
+              const data = await res.json();
+              showMessage(`Inserted ${data.insertedCount} songs`, "success");
+              fetchSongs();
+            } catch (e) {
+              showMessage("Error fetching songs: " + e.message, "error");
+            }
+          }
+          async function insertSongs() {
+            try {
+              const res = await fetch(`/api/songs/music-director/${encodeURIComponent()}`);
+              const data = await res.json();
+              showMessage(`Inserted ${data.insertedCount} songs`, "success");
+              fetchSongs();
+            } catch (e) {
+              showMessage("Error fetching songs: " + e.message, "error");
+            }
+          }
+
+      </script>
+</body>
+</html>

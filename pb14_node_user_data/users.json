@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Swapnil Badave",
+    "email": "swapnil@example.com",
+    "mobile": "9876543210",
+    "dob": "2002-01-01",
+    "city": "Pune",
+    "address": "123 PICT Campus"
+  },
+  {
+    "name": "Aniket Patil",
+    "email": "aniket@example.com",
+    "mobile": "9123456780",
+    "dob": "2001-12-31",
+    "city": "Mumbai",
+    "address": "456 Tech Street"
+  }
+]

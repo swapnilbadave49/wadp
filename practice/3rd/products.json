@@ -1,0 +1,14 @@
+[
+
+    {
+      "name":"laptop",  
+      "price":"20000",  
+      "image":"laptop.png"
+    },
+    {
+        "name":"Computer",  
+        "price":"110000",  
+        "image":"comp.png" 
+    }
+    
+]

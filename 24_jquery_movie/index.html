@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Reviews</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+  <!-- Home Page -->
+  <div data-role="page" id="home">
+    <div data-role="header">
+      <h1>Movie Reviews</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#home" class="ui-btn-active">Home</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <p>Welcome to our mobile movie review site! Explore some hand-picked movies and read our reviews.</p>
+    </div>
+  </div>
+
+  <!-- Reviews Page -->
+  <div data-role="page" id="reviews">
+    <div data-role="header">
+      <h1>Top Movies</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#reviews" class="ui-btn-active">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-role="content">
+
+      <!-- Movie 1 -->
+      <div data-role="collapsible">
+        <h3>Inception</h3>
+        <img src="https://via.placeholder.com/300x150?text=Inception" alt="Inception Poster" style="width:100%; border-radius:8px;">
+        <p><strong>Genre:</strong> Sci-Fi, Action</p>
+        <p><strong>Summary:</strong> A thief who steals corporate secrets using dream-sharing tech is given a task to plant an idea into a CEO's mind.</p>
+        <p><strong>Review:</strong> Brilliantly complex and visually stunning. Nolan crafts a deep narrative that rewards multiple viewings.</p>
+      </div>
+
+      <!-- Movie 2 -->
+      <div data-role="collapsible">
+        <h3>The Shawshank Redemption</h3>
+        <img src="https://via.placeholder.com/300x150?text=Shawshank" alt="Shawshank Poster" style="width:100%; border-radius:8px;">
+        <p><strong>Genre:</strong> Drama</p>
+        <p><strong>Summary:</strong> Two imprisoned men bond over years, finding solace and redemption through acts of common decency.</p>
+        <p><strong>Review:</strong> A timeless story of hope and resilience with outstanding performances by Tim Robbins and Morgan Freeman.</p>
+      </div>
+
+      <!-- Movie 3 -->
+      <div data-role="collapsible">
+        <h3>Avengers: Endgame</h3>
+        <img src="https://via.placeholder.com/300x150?text=Endgame" alt="Endgame Poster" style="width:100%; border-radius:8px;">
+        <p><strong>Genre:</strong> Superhero, Action</p>
+        <p><strong>Summary:</strong> After the devastating events of Infinity War, the Avengers assemble one last time to undo the chaos caused by Thanos.</p>
+        <p><strong>Review:</strong> An epic conclusion to a decade of storytelling. Packed with emotion, action, and fan service.</p>
+      </div>
+
+      <!-- Movie 4 -->
+      <div data-role="collapsible">
+        <h3>3 Idiots</h3>
+        <img src="https://via.placeholder.com/300x150?text=3+Idiots" alt="3 Idiots Poster" style="width:100%; border-radius:8px;">
+        <p><strong>Genre:</strong> Comedy, Drama</p>
+        <p><strong>Summary:</strong> Follows three engineering students and explores the Indian education system with humor and insight.</p>
+        <p><strong>Review:</strong> A heartwarming and hilarious film with a strong message about passion, pressure, and perseverance.</p>
+      </div>
+
+      <!-- Movie 5 -->
+      <div data-role="collapsible">
+        <h3>Interstellar</h3>
+        <img src="https://via.placeholder.com/300x150?text=Interstellar" alt="Interstellar Poster" style="width:100%; border-radius:8px;">
+        <p><strong>Genre:</strong> Sci-Fi, Drama</p>
+        <p><strong>Summary:</strong> A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
+        <p><strong>Review:</strong> Visually breathtaking and deeply emotional. A sci-fi journey with a powerful human core.</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
